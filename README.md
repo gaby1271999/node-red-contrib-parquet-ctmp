@@ -42,9 +42,6 @@ An [example][3] is ready to use.
 ### Changelog
 Changes can be followed [here][4]
 
-### Credits
-This project receives funding in the European Commission’s Horizon 2020 Research Programme under Grant Agreement Number 870062
-
 ### License
 [MIT][5]
 
