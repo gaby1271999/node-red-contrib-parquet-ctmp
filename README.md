@@ -15,7 +15,7 @@ For the original project, please visit [@msigrupo-develop/node-red-contrib-parqu
 ### Installation
 It can be installed from the Node-RED palette, or by executing the following command in the Node-RED installation directory:
 ```sh
-npm install @oplity/node-red-contrib-parquet-ctmp
+npm install node-red-contrib-parquet-ctmp
 ```
 
 ### Dependencies

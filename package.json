@@ -1,10 +1,10 @@
 {
-    "name": "@oplity/node-red-contrib-parquet-ctmp",
+    "name": "node-red-contrib-parquet-ctmp",
     "version": "1.0.0",
     "description": "Read and write parquet format files",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gaby1271999/node-red-contrib-parquet-ctmp"
+        "url": "git+https://github.com/gaby1271999/node-red-contrib-parquet-ctmp.git"
     },
     "bugs": {
         "url": "https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/issues"
