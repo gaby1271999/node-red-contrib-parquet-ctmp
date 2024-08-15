@@ -1,6 +1,7 @@
 {
     "label": {
         "name": "Name",
+        "tempDir": "Temporary directory",
         "option": {
             "text": "Option",
             "r": "Read",

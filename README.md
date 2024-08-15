@@ -1,10 +1,21 @@
-# node-red-contrib-parquet
+# node-red-contrib-parquet-ctmp
 Converts between a PARQUET string and its JavaScript object representation, in either direction.
+
+This repository is a fork of [@msigrupo-develop/node-red-contrib-parquet](https://github.com/msigrupo/node-red-contrib-parquet).
+
+### About This Fork
+
+This fork was created to fix the temp file error when the application is not permitted to write in the default directory. With the changes made her you can change the default directory for the temp files.
+
+## Original Repository
+
+For the original project, please visit [@msigrupo-develop/node-red-contrib-parquet](https://github.com/msigrupo/node-red-contrib-parquet).
+
 
 ### Installation
 It can be installed from the Node-RED palette, or by executing the following command in the Node-RED installation directory:
 ```sh
-npm install @msigrupo-develop/node-red-contrib-parquet
+npm install @oplity/node-red-contrib-parquet-ctmp
 ```
 
 ### Dependencies
@@ -23,7 +34,7 @@ By default, the output is sent to msg.payload bu it can be configured.
 An [example][2] is ready to use.
 
 ##### Write mode
-It will parse a JavaScript object to a Parqute single Buffer object. It is intended to be used together with the file writting node.
+It will parse a JavaScript object to a Parquet single Buffer object. It is intended to be used together with the file writing node.
 The columns names and types to be processed from the input must be configured. The input must be an array of objects with the names and values of the columns.
 The output returns a single Buffer object in msg.payload.
 An [example][3] is ready to use.
@@ -39,7 +50,7 @@ This project receives funding in the European Commission’s Horizon 2020 Resear
 
 
 [1]:https://www.npmjs.com/package/parquetjs-lite
-[2]:https://github.com/msigrupo/node-red-contrib-parquet/blob/master/examples/ReadParquet.json
-[3]:https://github.com/msigrupo/node-red-contrib-parquet/blob/master/examples/WriteParquet.json
-[4]:https://github.com/msigrupo/node-red-contrib-parquet/blob/master/CHANGELOG.md
-[5]:https://github.com/msigrupo/node-red-contrib-parquet/blob/master/LICENCE
+[2]:https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/blob/master/examples/ReadParquet.json
+[3]:https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/blob/master/examples/WriteParquet.json
+[4]:https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/blob/master/CHANGELOG.md
+[5]:https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/blob/master/LICENCE

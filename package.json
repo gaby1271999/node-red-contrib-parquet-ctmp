@@ -1,16 +1,16 @@
 {
-    "name": "@msigrupo-develop/node-red-contrib-parquet",
-    "version": "1.1.0",
+    "name": "@oplity/node-red-contrib-parquet-ctmp",
+    "version": "1.0.0",
     "description": "Read and write parquet format files",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/msigrupo/node-red-contrib-parquet.git"
+        "url": "git+https://github.com/gaby1271999/node-red-contrib-parquet-ctmp"
     },
     "bugs": {
-        "url": "https://github.com/msigrupo/node-red-contrib-parquet/issues"
+        "url": "https://github.com/gaby1271999/node-red-contrib-parquet-ctmp/issues"
     },
     "author": {
-        "name": "MSI"
+        "name": "Gabriel"
     },
     "keywords": [
         "node-red",
@@ -27,6 +27,7 @@
         "node": ">=12.0.0"
     },
     "dependencies": {
-        "parquetjs-lite": "^0.8.7"
+        "parquetjs-lite": "^0.8.7",
+        "path": "^0.12.7"
     }
 }

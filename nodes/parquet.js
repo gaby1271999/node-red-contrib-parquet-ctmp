@@ -1,4 +1,5 @@
 var parquet = require('parquetjs-lite');
+var path = require('path');
 var fs = require('fs');
 
 module.exports = function(RED) {
@@ -14,6 +15,8 @@ module.exports = function(RED) {
 	function Parquet(node, config) {
 
 		let reader, writer;
+
+		let tempDir = config.tempDir;
 
 		let option = config.option; //read || write
 
@@ -118,23 +121,26 @@ module.exports = function(RED) {
 		}
 
 		async function closeReader() {
+			if (reader == null) return;
+
 			//Close reader if is not close
 			try {
 				await reader.close();
 			} catch (error) {
-				
+				// node.error(error);
 			}
 		}
 
 		async function writeFile() {
 			try {
 				// declare a schema for the table
-				let schema = await new parquet.ParquetSchema(generateSchemaColumns());
+				let schema = new parquet.ParquetSchema(generateSchemaColumns());
 	
 				let tmpFilename = "tmp_" + new Date().getTime() + ".parquet";
+				let pathToTmp = path.join(tempDir, tmpFilename)
 
 				// create new ParquetWriter that writes to parquet file
-				writer = await parquet.ParquetWriter.openFile(schema, tmpFilename);
+				writer = await parquet.ParquetWriter.openFile(schema, pathToTmp);
 		
 				// append a few rows to the file
 				await node.inputMsg["payload"].forEach(element => {
@@ -165,12 +171,13 @@ module.exports = function(RED) {
 		//Read file to get buffer
 		async function getFileBuffer(tmpFilename) {
 			try {
-				var data = fs.readFileSync(tmpFilename);
+				let pathToTmp = path.join(tempDir, tmpFilename)
+				var data = fs.readFileSync(pathToTmp);
 
 				node.inputMsg["payload"] = data;
 				node.send(node.inputMsg);
 
-				await deleteTmpFile(tmpFilename);
+				deleteTmpFile(tmpFilename);
 			} catch (error) {
 				node.error(error);
 			}
@@ -178,18 +185,21 @@ module.exports = function(RED) {
 
 		function deleteTmpFile(tmpFilename) {
 			try {
-				fs.unlinkSync(tmpFilename);
+				let pathToTmp = path.join(tempDir, tmpFilename)
+				fs.unlinkSync(pathToTmp);
 			} catch (error) {
 				node.error(error);
 			}
 		}
 
 		async function closeWriter() {
+			if (writer == null) return;
+
 			//Close reader if is not close
 			try {
-				writer.close();
+				await writer.close();
 			} catch (error) {
-				
+				// node.error(error);
 			}
 		}
 	}
