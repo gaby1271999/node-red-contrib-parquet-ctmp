@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-parquet-ctmp",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Read and write parquet format files",
     "repository": {
         "type": "git",
